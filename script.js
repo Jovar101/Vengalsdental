@@ -8,7 +8,7 @@ const translations = {
         'nav-contact': 'Contact',
         'nav-blog': 'Blog',
         'nav-book': 'Book Appointment',
-        'hero-title': 'Your Smile is Our Priority',
+        'hero-title': 'We Care For Your Smile',
         'hero-subtitle': 'Experience world-class dental care with our expert team. Modern technology, gentle approach, and exceptional results.',
         'hero-cta': 'Schedule Your Visit',
         'services-title': 'Our Services',
