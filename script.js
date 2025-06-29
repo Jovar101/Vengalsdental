@@ -267,14 +267,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Form submission
+// ...existing code...
+
 document.getElementById('appointmentForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
     // Collect form data
     const formData = new FormData(this);
     const data = Object.fromEntries(formData);
-    
+
     // Simple validation
     if (!data.firstName || !data.lastName || !data.phone || !data.email) {
         alert(currentLanguage === 'hi' ? 'कृपया सभी आवश्यक फ़ील्ड भरें।' : 
@@ -282,7 +283,7 @@ document.getElementById('appointmentForm').addEventListener('submit', function(e
                 'Please fill in all required fields.');
         return;
     }
-    
+
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(data.email)) {
@@ -291,15 +292,26 @@ document.getElementById('appointmentForm').addEventListener('submit', function(e
                 'Please enter a valid email address.');
         return;
     }
-    
-    // Success message
-    alert(currentLanguage === 'hi' ? 'धन्यवाद! आपका अपॉइंटमेंट अनुरोध प्राप्त हुआ है। हम 24 घंटे के भीतर आपसे संपर्क करेंगे।' : 
-            currentLanguage === 'ta' ? 'நன்றி! உங்கள் சந்திப்பு கோரிக்கை பெறப்பட்டது. நாங்கள் 24 மணி நேரத்திற்குள் உங்களைத் தொடர்பு கொள்வோம்.' : 
-            'Thank you! Your appointment request has been received. We will contact you within 24 hours.');
-    
-    // Reset form
+
+    // Construct WhatsApp message
+    const clinicPhone = '919188873481'; // WhatsApp number in international format, no +
+    let message = 
+        `Appointment Request:%0A` +
+        `Name: ${data.firstName} ${data.lastName}%0A` +
+        `Phone: ${data.phone}%0A` +
+        `Email: ${data.email}%0A` +
+        (data.service ? `Service: ${data.service}%0A` : '') +
+        (data.date ? `Preferred Date: ${data.date}%0A` : '') +
+        (data.message ? `Message: ${encodeURIComponent(data.message)}%0A` : '');
+
+    // Open WhatsApp
+    window.open(`https://wa.me/${clinicPhone}?text=${message}`, '_blank');
+
+    // Optionally reset form
     this.reset();
 });
+
+// ...existing code...
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
