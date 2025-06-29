@@ -331,13 +331,6 @@ if (mobileMenuBtn) {
     });
 }
 
-// Set minimum date for appointment booking (today)
-const dateInput = document.getElementById('date');
-if (dateInput) {
-    const today = new Date().toISOString().split('T')[0];
-    dateInput.setAttribute('min', today);
-}
-
 // Google Analytics (placeholder)
 function initializeAnalytics() {
     // Google Analytics 4 implementation would go here
@@ -383,25 +376,25 @@ if ('serviceWorker' in navigator) {
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "Dentist",
-    "name": "SmileCare Dental Clinic",
+    "name": "Vengal's Dental Clinic",
     "description": "Professional dental care with modern technology. Comprehensive dental services including general dentistry, cosmetic treatments, and emergency care.",
-    "url": "https://smilecare-dental.com",
-    "telephone": "+91-98765-43210",
+    "url": "https://vengalsdental.site",
+    "telephone": "+91-90617-12498",
     "address": {
         "@type": "PostalAddress",
-        "streetAddress": "123 Main Street",
-        "addressLocality": "Chennai",
-        "addressRegion": "Tamil Nadu",
-        "postalCode": "600001",
+        "streetAddress": "SH 1, Perunna",
+        "addressLocality": "Changanassery",
+        "addressRegion": "Kerala",
+        "postalCode": "686101",
         "addressCountry": "IN"
     },
-    "openingHours": "Mo-Sa 09:00-20:00",
+    "openingHours": "Mo-Sa 10:00-17:30",
     "priceRange": "$",
-    "image": "https://smilecare-dental.com/images/clinic.jpg",
+    "image": "https://vengalsdental.site/images/clinic.jpg",
     "sameAs": [
-        "https://www.facebook.com/smilecare",
-        "https://www.instagram.com/smilecare",
-        "https://www.youtube.com/smilecare"
+        "https://www.facebook.com/vengalsdental",
+        "https://www.instagram.com/vengalsdental",
+        "https://www.youtube.com/vengalsdental"
     ]
 };
 
