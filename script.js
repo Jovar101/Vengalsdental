@@ -294,7 +294,7 @@ document.getElementById('appointmentForm').addEventListener('submit', function(e
     }
 
     // Construct WhatsApp message
-    const clinicPhone = '919188873481'; // WhatsApp number in international format, no +
+    const clinicPhone = '919061712498'; // WhatsApp number in international format, no +
     let message = 
         `Appointment Request:%0A` +
         `Name: ${data.firstName} ${data.lastName}%0A` +
